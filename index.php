@@ -111,7 +111,7 @@
                             <input type="password" placeholder="Password" name="pw" id="pw"
                                 onkeypress="isNotChar(event)" required>
                         </div>
-                        <button  class="formbtn" name="loginsubmit" type="submit">
+                        <button   name="loginsubmit" type="submit" style="padding-bottom: 20spx;">
                             Sign in
                         </button>
                         <p>
@@ -143,7 +143,7 @@
             <div class="col align-items-center flex-col">
                 <div class="text sign-in">
                     <h2>
-                        SupplyHub - DApp for supplychain management
+                        SupplyHub - DApp for Supply Chain Management
                     </h2>
                     <p>
                       SupplyHub is Decentralized Web Application (DAPP) used for helping Manufacturers, different distributors, and consumers.
@@ -154,8 +154,6 @@
 
                 </div>
             </div>
-            <!-- END SIGN IN CONTENT -->
-            <!-- SIGN UP CONTENT -->
             <div class="col align-items-center flex-col">
                 <div class="img sign-up">
 

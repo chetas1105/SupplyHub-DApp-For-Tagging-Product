@@ -49,6 +49,8 @@ $color="navbar-dark cyan darken-3";
                         <label class=qrcode-text-btn style="width:4%;display:none;">
                             <input type=file accept="image/*" id="selectedFile" style="display:none" capture=environment onchange="openQRCamera(this);" tabindex=-1>
                         </label>
+                        <input type="hidden" class="forminput" id="user" value=<?php echo $_SESSION['username']; ?> required>
+                        <input type="hidden" class="forminput" id="role" value=<?php echo $_SESSION['role']; ?> required>
                         <button class="qrbutton2" onclick="document.getElementById('selectedFile').click();" style="margin-bottom: 5px;margin-top: 5px;">
                         <i class='fa fa-qrcode'></i> Scan QR
 		                </button
@@ -125,7 +127,11 @@ $color="navbar-dark cyan darken-3";
 
     $('#form1').on('submit', function(event) {
         event.preventDefault(); // to prevent page reload when form is submitted
+        username = $('#user').val(); 
         prodname = $('#prodname').val();
+        prodname=prodname+"<br>Shipment By: "+username;
+        
+        
         console.log(prodname);
         var today = new Date();
         var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -157,12 +163,21 @@ $color="navbar-dark cyan darken-3";
     $('#form2').on('submit', function(event) {
         event.preventDefault(); // to prevent page reload when form is submitted
         prodid = $('#prodid').val();
+        username = $('#user').val(); 
+        role = $('#role').val();
         prodlocation = $('#prodlocation').val();
         console.log(prodid);
         console.log(prodlocation);
         var today = new Date();
         var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var info = "<br><br><b>Date: "+thisdate+"</b><br>Location: "+prodlocation;
+        if (role == 0) {
+          var info = "<br><br>Shipment By: "+username +"(Manufacturer)"+"<br><b>Date: "+thisdate+"</b><br>Location: "+prodlocation;
+        } else if (role == 1) {
+          var info = "<br><br>Shipment By: "+username+"(Distributor)"+"<br><b>Date: "+thisdate+"</b><br>Location: "+prodlocation;
+        } else{
+          var info = "<br><br>Shipment By: "+username+"<br><b>Date: "+thisdate+"</b><br>Location: "+prodlocation;
+        }
+        
         web3.eth.getAccounts().then(async function(accounts) {
           var receipt = await contract.methods.addState(prodid, info).send({ from: accounts[0], gas: 1000000 })
           .then(receipt => {

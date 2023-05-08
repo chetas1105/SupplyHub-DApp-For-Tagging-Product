@@ -114,7 +114,7 @@ $color="navbar-light orange darken-4";
 
 
     $('#form1').on('submit', function(event) {
-        event.preventDefault(); // to prevent page reload when form is submitted
+        event.preventDefault(); // to prevant page reloading when form is submitted.
         prodname = $('#prodname').val();
         username = $('#user').val(); 
         prodname=prodname+"<br>Registered By: "+username;
