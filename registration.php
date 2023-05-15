@@ -10,7 +10,7 @@
     <link rel="SHORTCUT ICON" href="images/fibble.png" type="image/x-icon" />
     <link rel="ICON" href="images/fibble.png" type="image/ico" />
 
-    <title>SupplyHub - Check Product</title>
+    <title>SupplyHub - create new account</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -94,7 +94,7 @@
       <center>
       <div class="loginformcard" id="card1">
             <h4> Create your new account</h4>
-            <form style="margin-top: 30px; margin-bottom: 30px;" action="registration.php" method="POST" onsubmit="return checkform(this);">
+            <form style="margin-top: 30px; margin-bottom: 30px;" action="registration.php" method="POST" onsubmit="return checkSecondForm(this);">
 
             <label type="text" class="formlabel"> Email </label>
             <input type="text" class="forminput" value="<?php echo $email; ?>" name="email" onkeypress="isNotChar(event)" required>

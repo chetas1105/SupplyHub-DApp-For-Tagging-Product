@@ -87,7 +87,7 @@ session_start(); ?>
             <button class="formbtn" name="loginsubmit" type="submit">Login</button>
 
             <br>
-            <a href="#" id="gotosignup"> Don't have an account? Create a new account now</a>
+            <a href="registration.php" id="gotosignup"> Don't have an account? Create a new account now</a>
             </form>
                 
       </div>
